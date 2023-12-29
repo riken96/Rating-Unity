@@ -6,6 +6,8 @@ using System;
 public class RatingManager : MonoBehaviour
 {
     private const string PlayStoreUrl = "https://play.google.com/store/apps/details?id={0}";
+    private const string AppStoreUrl = "https://itunes.apple.com/app/apple-store/id{0}";
+
     public string androidBundleID;
     public string iosAppId;
     public Sprite BlankStarSprite;
@@ -85,7 +87,7 @@ public class RatingManager : MonoBehaviour
 #if UNITY_ANDROID
         Application.OpenURL(String.Format(PlayStoreUrl, androidBundleID));
 #elif UNITY_IOS
-            Application.OpenURL(String.Format(AppStoreUrl, crossPromoAssetsRoot.appStoreID));
+            Application.OpenURL(String.Format(AppStoreUrl, iosAppId));
 #endif
     }
 }
